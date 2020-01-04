@@ -23,6 +23,10 @@
           {{ form.description() }}
         </div>
         <div class="form-group">
+          {{ form.photo.label() }}
+          {{ form.photo() }}
+        </div>
+        <div class="form-group">
             {{ form.submit(class="btn", value="Submit") }}
         </div>
     </form>

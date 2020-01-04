@@ -61,7 +61,8 @@ def logout():
 
 @app.route("/feed")
 def feed():
-    return render_template('feed.html')
+    posts = Post.query.all()
+    return render_template('feed.html', posts=posts)
 
 @app.route("/earn", methods=['GET', 'POST'])
 def earn():

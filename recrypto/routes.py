@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request
 from recrypto import app, db
-from recrypto.models import User, Post
+from recrypto.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from recrypto.forms import LoginForm, RegistrationForm, EarnForm
 from flask_login import login_user, current_user, logout_user, login_required
@@ -61,41 +61,14 @@ def logout():
 
 @app.route("/feed")
 def feed():
-    posts = Post.query.all()
-    return render_template('feed.html', posts=posts)
+    return render_template('feed.html')
 
 @app.route("/earn", methods=['GET', 'POST'])
 def earn():
     form = EarnForm()
     if form.validate_on_submit():
-        #filename = secure_filename(form.image.data.filename)
-        #form.image.data.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        post = Post(title=form.title.data, description=form.description.data)
+        post = Post(title=form.title.data, description=form.description.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('feed'))
     return render_template('earn.html', form=form)
-
-
-'''def earn():
-    if request.method == 'POST':
-        f = request.files['file']
-        f.save(secure_filename(f.filename))
-        return 'file uploaded successfully'
-    return render_template('earn.html')
-def upload_file():
-    if request.method == 'POST':
-         check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-         if user does not select file, browser also
-         submit a empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-'''

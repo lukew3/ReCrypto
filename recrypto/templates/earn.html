@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block script %}
+{% endblock script %}
+
+{% block style %}
+{% endblock style %}
+
+{% block content %}
+<h1>Earn Page</h1>
+
+<h2>upload image</h2>
+<form action = "upload_file()" method = "POST" enctype = "multipart/form-data">
+  <input type = "file" name = "file" />
+  <input type = "submit" value="submit"/>
+</form>
+
+<div id="earnCrypto">
+  <h2>Earn ReCrypto</h2>
+  <div class="form">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+        <div class="form-group">
+          {{ form.title.label() }}
+          {{ form.title() }}
+        </div>
+        <div class="form-group">
+          {{ form.description.label() }}
+          {{ form.description() }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn") }}
+        </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}

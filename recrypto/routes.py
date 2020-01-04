@@ -58,3 +58,7 @@ def logout():
 @app.route("/home")
 def home():
     return render_template('home.html')
+
+@app.route("/earn")
+def earn():
+    return render_template('earn.html')

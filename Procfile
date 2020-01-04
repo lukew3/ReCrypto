@@ -1,1 +1,1 @@
-web: gunicorn flask_portfolio:app
+web: gunicorn recrypto:app

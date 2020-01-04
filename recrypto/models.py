@@ -12,7 +12,6 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(30), unique=False, nullable=False)
     password = db.Column(db.String(50), unique=False, nullable=False)
-    recrypto_balance = db.Column(db.Integer(), unique=False, nullable=True, default=0)
     #profilePicture = db.Column(db.String(20), unique=False, nullable=False, default="default.jpg")
 
     def __repr__(self):
@@ -23,9 +22,8 @@ class Post(db.Model):
     title = db.Column(db.String(50), unique=False, nullable=False)
     description = db.Column(db.String(1000), unique=False, nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    #image = db.Column(db.FileField)
     #author =
-
+    #photo =
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.description}')"

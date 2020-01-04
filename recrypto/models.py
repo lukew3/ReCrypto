@@ -15,3 +15,13 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}' )"
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(50), unique=False, nullable=False)
+    description = db.Column(db.String(1000), unique=False, nullable=False)
+    #photo =
+
+    def __repr__(self):
+        return f"Post('{self.title}', '{self.description}')"
+        

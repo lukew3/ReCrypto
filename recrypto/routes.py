@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request
 from recrypto import app, db
-from recrypto.models import User
+from recrypto.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 from recrypto.forms import LoginForm, RegistrationForm, EarnForm
 from flask_login import login_user, current_user, logout_user, login_required
@@ -61,13 +61,16 @@ def logout():
 
 @app.route("/feed")
 def feed():
-    return render_template('feed.html')
+    posts = Post.query.all()
+    return render_template('feed.html', posts=posts)
 
 @app.route("/earn", methods=['GET', 'POST'])
 def earn():
     form = EarnForm()
     if form.validate_on_submit():
-        post = Post(title=form.title.data, description=form.description.data, author=current_user)
+        filename = secure_filename(form.image.data.filename)
+        form.image.data.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        post = Post(title=form.title.data, description=form.description.data, image=filename)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('feed'))

@@ -5,49 +5,46 @@
 
 {% block style %}
 <style>
-nav{
-	text-align:center;
-	font-size:1.5em;
-    border:2px solid black;
-    background-color:white;
-	font-weight: bold; 
-    position: relative;
-    z-index: 1;
-    max-width: 600px;
-    margin: 0 auto 25px;
-    padding: 5px;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+#postBox {
+  display: block;
+  position: relative;
+  background-color: grey;
+  width: 60vw;
+  left: 20vw;
+  height: 100pt;
+  text-align: left;
+  margin: 10pt;
 }
-nav a:link  {color:black;}
-nav a:visited{color:#4CAF50}
-nav a:hover {color:green;}
-nav ul{
-    list-style-type:none;
-	margin:0;
-	padding:0;
+#postTitle {
+  text-align: left;
+  padding-left: 10pt;
+  padding-top: 10pt;
 }
-nav li{
-    display:inline-block;
-    padding:7px;
-    
+#postDescription {
+  text-align: left;
+  padding-left: 10pt;
 }
-nav a{
-	text-decoration:none;
-	display:block;
-	margin:0;
-	padding:0;
+#pageTitle {
+
+}
+#textBox {
+  width: 30vw;
+  float: right;
+  position: relative;
+  text-align: right;
 }
 </style>
 {% endblock style %}
 
 {% block content %}
- <nav><ul>
-            <li><a href="https://recrypto.herokuapp.com/landing">ReCrypto</a></li> &nbsp;
-            <li><a href="https://recrypto.herokuapp.com/feed">Feed</a></li> &nbsp;
-            <li><a href="https://recrypto.herokuapp.com/earn">Earn</a></li> &nbsp;
-            <li><a href="https://recrypto.herokuapp.com/login">Login</a></li> &nbsp;
-            <li><a href="https://recrypto.herokuapp.com/register">Register</a></li> &nbsp;
-                 </ul></nav>
-<h1>Feed Page</h1>
+<h1 id="pageTitle">Community</h1>
+{% for post in posts %}
+<div id="postBox">
+  <img src="{{ post.image }}">
+  <div id="textBox">
+    <h2 id="postTitle">{{ post.title }}</h2>
+    <p id="postDescription">{{ post.description }}</p>
+  </div>
+</div>
+{% endfor %}
 {% endblock content %}

@@ -1,7 +1,9 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from recrypto.models import User
+from werkzeug import secure_filename
 
 
 class RegistrationForm(FlaskForm):
@@ -31,4 +33,5 @@ class LoginForm(FlaskForm):
 class EarnForm(FlaskForm):
     title = StringField('Title')
     description = StringField('Description')
+    image = FileField()
     submit = SubmitField('Sign Up')

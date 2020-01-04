@@ -7,61 +7,12 @@
 {% endblock style %}
 
 {% block content %}
- 
-        
-        
-      {% endblock %}
-
-      {% block style %}
-        <style>
-nav{
-	text-align:center;
-    font-size:1.5em;
-    border:2px solid black;
-    background-color:white;
-    font-weight: bold; 
-    position: relative;
-    z-index: 1;
-    max-width: 600px;
-    margin: 0 auto 25px;
-    padding: 5px;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-nav a:link  {color:black;}
-nav a:visited{color:#4CAF50}
-nav a:hover {color:green;}
-nav ul{
-    list-style-type:none;
-	margin:0;
-	padding:0;
-}
-nav li{
-    display:inline-block;
-    padding:7px;
-    
-}
-nav a{
-	text-decoration:none;
-	display:block;
-	margin:0;
-	padding:0;
-}
-        </style>
-<body>
- <nav><ul>
-            <li><a href="https://recrypto.herokuapp.com/landing">ReCrypto</a></li> &nbsp;
-            <li><a href="https://recrypto.herokuapp.com/feed">Feed</a></li> &nbsp;
-            <li><a href="https://recrypto.herokuapp.com/earn">Earn</a></li> &nbsp;
-            <li><a href="https://recrypto.herokuapp.com/login">Login</a></li> &nbsp;
-            <li><a href="https://recrypto.herokuapp.com/register">Register</a></li> &nbsp;
-                 </ul></nav>
 <h1>Earn Page</h1>
 
 <div id="earnCrypto">
   <h2>Earn ReCrypto</h2>
   <div class="form">
-    <form method="POST" action="" enctype="">
+    <form method="POST" action="">
       {{ form.hidden_tag() }}
         <div class="form-group">
           {{ form.title.label() }}
@@ -72,8 +23,8 @@ nav a{
           {{ form.description() }}
         </div>
         <div class="form-group">
-          <label for="inputFile">File Input</label>
-          <input type="file" name="inputFile">
+          {{ form.photo.label() }}
+          {{ form.photo() }}
         </div>
         <div class="form-group">
             {{ form.submit(class="btn", value="Submit") }}

@@ -33,5 +33,6 @@ class LoginForm(FlaskForm):
 class EarnForm(FlaskForm):
     title = StringField('Title')
     description = StringField('Description')
-    image = FileField()
+    photo = StringField('Photo')
+    #image = FileField()
     submit = SubmitField('Sign Up')

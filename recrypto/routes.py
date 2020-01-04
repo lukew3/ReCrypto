@@ -53,8 +53,9 @@ def register():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    return redirect(url_for('landing'))
 
 @app.route("/home")
 def home():
+    addRecrypto(100)
     return render_template('home.html')

@@ -1,5 +1,13 @@
 {% extends "layout.html" %}
 
+{% block script %}
+<script>
+  $('.message a').click(function(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+  });
+</script>
+{% endblock script %}
+
 {% block style %}
 <style>
   .login-page {
@@ -97,17 +105,17 @@
 <h1 style=text-align:center>ReCrypto</h1>
 <div class="login-page">
     <div class="form">
-      <form class="register-form">
+      <!--<form class="register-form">
         <h1 style=text-align:center>ReCrypto</h1>
         <input type="text" placeholder="name"/>
         <input type="password" placeholder="password"/>
         <input type="text" placeholder="email address"/>
         <button>create</button>
         <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
+      </form>-->
       <form class="login-form">
-        <input type="text" placeholder="username"/>
-        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="username" name="username"/>
+        <input type="password" placeholder="password" name="password"/>
         <button>login</button>
         <p class="message">Not registered? <a href="#">Create an account</a></p>
       </form>

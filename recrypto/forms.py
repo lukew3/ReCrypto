@@ -26,3 +26,9 @@ class LoginForm(FlaskForm):
     username = StringField('Username')
     password = PasswordField('Password')
     submit = SubmitField('Login')
+
+
+class EarnForm(FlaskForm):
+    title = StringField('Title')
+    description = StringField('Description')
+    submit = SubmitField('Sign Up')

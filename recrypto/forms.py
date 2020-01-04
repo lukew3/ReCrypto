@@ -6,6 +6,7 @@ from recrypto.models import User
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=30)])
+    email = StringField('Email', validators=[DataRequired(), Length(min=2, max=30)])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
@@ -22,6 +23,6 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    username = StringField('Username')
+    password = PasswordField('Password')
     submit = SubmitField('Login')

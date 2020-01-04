@@ -13,8 +13,12 @@
           <a href="{{ url_for('landing') }}">ReCrypto</a>
           <a href="{{ url_for('feed') }}">Feed</a>
           <a href="{{ url_for('earn') }}">Earn</a>
-          <a href="{{ url_for('login') }}">Login</a>
-          <a href="{{ url_for('register') }}">Register</a>
+          {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+          {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+          {% endif %}
         </div>
       </nav>
         {% block content %}

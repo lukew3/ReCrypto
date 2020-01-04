@@ -68,7 +68,10 @@ def feed():
 def earn():
     form = EarnForm()
     if form.validate_on_submit():
-        post = Post(title=form.title.data, description=form.description.data)
+        file = form.image
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        post = Post(title=form.title.data, description=form.description.data, image=filename)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('feed'))

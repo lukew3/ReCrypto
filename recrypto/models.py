@@ -22,8 +22,4 @@ class Post(db.Model):
     title = db.Column(db.String(50), unique=False, nullable=False)
     description = db.Column(db.String(1000), unique=False, nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    #author =
-    #photo =
-
-    def __repr__(self):
-        return f"Post('{self.title}', '{self.description}')"
+    image = db.Column(db.String(100))

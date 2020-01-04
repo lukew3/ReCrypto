@@ -107,21 +107,3 @@ h1 {
 .container .info span .fa {
   color: #EF3B3A;
 }
-#postBox {
-  display: block;
-  position: relative;
-  background-color: grey;
-  width: 50vw;
-  left: 25vw;
-  height: 100pt;
-  text-align: left;
-}
-#postTitle {
-  text-align: left;
-  padding-left: 10pt;
-  padding-top: 10pt;
-}
-#postDescription {
-  text-align: left;
-  padding-left: 10pt;
-}

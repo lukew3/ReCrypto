@@ -70,7 +70,7 @@ def community():
 def earn():
     form = EarnForm()
     if form.validate_on_submit():
-        post = Post(title=form.title.data, description=form.description.data)
+        post = Post(title=form.title.data, description=form.description.data, photo=form.photo.data)
         balance = 0
         balance = balance + 10
         db.session.add(post)

@@ -11,7 +11,7 @@
   background-color: #f2f2f2;
   width: 60vw;
   left: 20vw;
-  height: 100pt;
+  height: 234pt;
   text-align: left;
   margin: 10pt;
 }
@@ -25,12 +25,23 @@
   padding-left: 10pt;
 }
 #pageTitle {
+
 }
+
 #textBox {
   width: 30vw;
   float: right;
   position: relative;
   text-align: right;
+}
+#imageBox {
+  width: 30vw;
+  float: left;
+  position: relative;
+  text-align: right;
+}
+img {
+  width: 30vw;
 }
 </style>
 {% endblock style %}
@@ -39,7 +50,9 @@
 <h1 id="pageTitle">Community</h1>
 {% for post in posts %}
 <div id="postBox">
-  <img src="/Media/{{ post.image }}">
+  <div id="imageBox">
+    <img src="{{ post.photo }}">
+  </div>
   <div id="textBox">
     <h2 id="postTitle">{{ post.title }}</h2>
     <p id="postDescription">{{ post.description }}</p>

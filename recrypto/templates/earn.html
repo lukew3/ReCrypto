@@ -4,16 +4,31 @@
 {% endblock script %}
 
 {% block style %}
+<style>
+  h2 {
+    color: black;
+  }
+  p {
+    color: black;
+    font-size: 15pt;
+  }
+  .form-group {
+    color: black;
+    font-size: 15pt;
+  }
+</style>
 {% endblock style %}
 
 {% block content %}
 <h1>Earn Page</h1>
 
 <div id="earnCrypto">
-  <h2>Earn ReCrypto</h2>
+  <h1> Your current ReCrypto balance is {{ balance }}
   <div class="form">
     <form method="POST" action="">
       {{ form.hidden_tag() }}
+      <h2>Earn ReCrypto</h2>
+      <p>Create your first post here to start earning crypto for doing work for the earth</p>
         <div class="form-group">
           {{ form.title.label() }}
           {{ form.title() }}
@@ -29,4 +44,4 @@
   </div>
 </div>
 </body>
-{% endblock content %} 
+{% endblock content %}

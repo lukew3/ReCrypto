@@ -6,6 +6,8 @@ from recrypto.forms import LoginForm, RegistrationForm, EarnForm
 from flask_login import login_user, current_user, logout_user, login_required
 from werkzeug.utils import secure_filename
 
+balance = 0
+
 def addCrypto():
     print("nothing here yet")
 
@@ -69,7 +71,10 @@ def earn():
     form = EarnForm()
     if form.validate_on_submit():
         post = Post(title=form.title.data, description=form.description.data)
+        balance = 0
+        balance = balance + 10
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('community'))
-    return render_template('earn.html', form=form)
+    balance = 0
+    return render_template('earn.html', form=form, balance=balance)

@@ -9,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  
+
 }
 h1 {
   color: white;
@@ -107,4 +107,44 @@ h1 {
 }
 .container .info span .fa {
   color: #EF3B3A;
+}
+
+        nav{
+	text-align:center;
+	font-size:1.5em;
+    border:2px solid black;
+    background-color:white;
+	font-weight: bold;
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto 25px;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+nav a:link  {color:black;}
+nav a:visited{color:#4CAF50}
+nav a:hover {color:green;}
+nav ul{
+    list-style-type:none;
+	margin:0;
+	padding:0;
+}
+nav li{
+    display:inline-block;
+    padding:7px;
+}
+nav a{
+	text-decoration:none;
+	display:block;
+	margin:0;
+	padding:0;
+}
+footer {
+  display: block;
+  top: 10vh;
+}
+#spacer {
+  height: 300px;
 }

@@ -92,12 +92,19 @@
   height: 25%;
   width: 50%;
 }
+p {
+  display: block;
+  position: absolute;
+  font-size: 14pt;
+  width: 80vw;
+  left: 10vw;
+}
   </style>
 {% endblock style %}
 
 {% block content %}
 <h1 class="title">Welcome to Recrypto!</h1>
-<img id="ReCryptoLogo" src="../Media/recryptoLogo.png">
+<!--<img id="ReCryptoLogo" src="../Media/recryptoLogo.png">-->
 <div class="container">
   <img class="mySlides" src="https://images.unsplash.com/photo-1536939459926-301728717817?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" style="width:100%">
   <img class="mySlides" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" style="width:100%">
@@ -105,6 +112,8 @@
   <button class="button1" onclick="plusDivs(-1)">&#10094;</button>
     <button class="button2" onclick="plusDivs(1)">&#10095;</button>
   </div>
+
+<p> Recrypto is a way to connect ecofriendly brands and ecofriendly customers. Companies can choose to donate any set amount of money to our fund, of which we will donate, in small but significant amounts. These customers will be told where their money is coming from so that they can see how passionate your company is to keeping the earth clean</p>
 
 
 {% endblock content %}

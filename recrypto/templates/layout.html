@@ -40,8 +40,17 @@ a{
 	margin:0;
 	padding:0;
 }
+footer {
+  display: block;
+  top: 10vh;
+}
+#spacer {
+  height: 300px;
+}
         </style>
       {% endblock %}
+    </head>
+    <body>
       <nav><ul>
         <div id="nav-links">
          <li><a href="{{ url_for('landing') }}">ReCrypto</a></li> &nbsp;
@@ -60,6 +69,9 @@ a{
         {% block content %}
         {% endblock %}
 <footer>
-  <p>Copyright &copy; 2020 ReCrypto</p>
+   <a href="#">Copyright &copy; 2020 ReCrypto</a>
   <a href="recrypto@gmail.com">recrypto@gmail.com</a>
                </footer>
+<div id="spacer"></div>
+</body>
+</html>

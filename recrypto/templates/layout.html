@@ -41,12 +41,10 @@ nav a{
 }
         </style>
       {% endblock %}
-    </head>
-    <body>
       <nav><ul>
         <div id="nav-links">
          <li><a href="{{ url_for('landing') }}">ReCrypto</a></li> &nbsp;
-         <li><a href="{{ url_for('community') }}">community</a></li> &nbsp;
+         <li><a href="{{ url_for('community') }}">Community</a></li> &nbsp;
          <li><a href="{{ url_for('earn') }}">Earn</a></li> &nbsp;
           {% if current_user.is_authenticated %}
           <li><a href="{{ url_for('logout') }}">Logout</a></li> &nbsp;
@@ -57,11 +55,10 @@ nav a{
         </div>
           </ul></nav>
 
-	     <footer>
-                Copyright &copy; 2020 ReCrypto
-                <a href="recrypto@gmail.com">recrypto@gmail.com</a>
-              </footer>
+
         {% block content %}
         {% endblock %}
-    </body>
-</html>
+<footer>
+  <p>Copyright &copy; 2020 ReCrypto</p>
+  <a href="recrypto@gmail.com">recrypto@gmail.com</a>
+               </footer>

@@ -14,7 +14,7 @@ def addCrypto():
 @app.route("/landing")
 def landing():
     if current_user.is_authenticated:
-        return redirect(url_for('feed'))
+        return redirect(url_for('community'))
     else:
         return render_template('landing.html')
     #return render_template('landing.html')
@@ -22,20 +22,20 @@ def landing():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('feed'))
+        return redirect(url_for('community'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user and (user.password == form.password.data):
             login_user(user)
-            redirect(url_for('feed'))
+            redirect(url_for('community'))
         else:
             flash('Login Unsuccessful')
     return render_template('login.html', form=form)
     #if form.validate_on_submit():
     #    return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
     if form.validate_on_submit():
-        return redirect(url_for('feed'))
+        return redirect(url_for('community'))
 
     return render_template('login.html', form=form)
 
@@ -43,7 +43,7 @@ def login():
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('feed'))
+        return redirect(url_for('community'))
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data, password=form.password.data)
@@ -57,12 +57,12 @@ def register():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('feed'))
+    return redirect(url_for('community'))
 
-@app.route("/feed")
-def feed():
+@app.route("/community")
+def community():
     posts = Post.query.all()
-    return render_template('feed.html', posts=posts)
+    return render_template('community.html', posts=posts)
 
 @app.route("/earn", methods=['GET', 'POST'])
 def earn():
@@ -71,5 +71,5 @@ def earn():
         post = Post(title=form.title.data, description=form.description.data)
         db.session.add(post)
         db.session.commit()
-        return redirect(url_for('feed'))
+        return redirect(url_for('community'))
     return render_template('earn.html', form=form)

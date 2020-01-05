@@ -22,7 +22,7 @@ class Post(db.Model):
     title = db.Column(db.String(50), unique=False, nullable=False)
     description = db.Column(db.String(1000), unique=False, nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    photo = db.Column(db.String(100), nullable=False, unique=False)
+    #photo = db.Column(db.String(100), nullable=False, unique=False)
     #author =
     #photo =
 
